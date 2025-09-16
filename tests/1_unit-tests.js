@@ -61,19 +61,21 @@ suite('Unit Tests', function () {
   suite('Comparisons', function () {
     // #8
     test('#isAbove, #isAtMost', function () {
-      assert.fail('hello'.length, 5);
-      assert.fail(1, 0);
-      assert.fail(Math.PI, 3);
-      assert.fail(1 - Math.random(), 1);
+      assert.isAtMost('hello'.length, 5);     // 5 <= 5
+      assert.isAbove(1, 0);                   // 1 > 0
+      assert.isAbove(Math.PI, 3);             // π > 3
+      assert.isAtMost(1 - Math.random(), 1);  // siempre <= 1
     });
+
     // #9
     test('#isBelow, #isAtLeast', function () {
-  assert.isAtLeast('world'.length, 5);     // 'world'.length = 5 → ✅ a >= b
-  assert.isBelow(2 * Math.random(), 1);    // 2 * rand < 1 → ✅ a < b
-  assert.isBelow(5 % 2, 2);                // 5 % 2 = 1 → ✅ a < b
-  assert.isBelow(2 / 3, 1);                // 2/3 ≈ 0.66 → ✅ a < b
+      assert.isAtLeast('world'.length, 5);    // 5 >= 5
+      assert.isBelow(Math.random(), 1);       // siempre < 1
+      assert.isBelow(5 * 2, 11);              // 10 < 11
+      assert.isBelow(2 / 3, 2 / 2);           // ≈0.66 < 1
+      assert.isBelow(2 / 3, 1);               // ≈0.66 < 1
     });
-    
+
     // #10
     test('#approximately', function () {
       assert.fail(weirdNumbers(0.5), 1, 0);
