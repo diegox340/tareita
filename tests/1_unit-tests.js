@@ -68,11 +68,12 @@ suite('Unit Tests', function () {
     });
 
     // #9
-    test('#isBelow, #isAtLeast', function () {
+    /** 9 - .isBelow() => a < b , .isAtLeast =>  a >= b **/
+    test('#isBelow, #isAtLeast', function() {
       assert.isAtLeast('world'.length, 5);
-      assert.isBelow(0.5, 1);
+      assert.isAtLeast(2 * Math.random(), 0);
       assert.isBelow(5 % 2, 2);
-      assert.isBelow(2 / 3, 1);
+      assert.isAtLeast(2 / 3, 1);
     });
 
     // #10
@@ -168,4 +169,3 @@ suite('Unit Tests', function () {
 
   // -----------------------------------------------------------------------------
 });
-
