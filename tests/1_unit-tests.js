@@ -68,11 +68,12 @@ suite('Unit Tests', function () {
     });
     // #9
     test('#isBelow, #isAtLeast', function () {
-      assert.fail('world'.length, 5);
-      assert.fail(2 * Math.random(), 0);
-      assert.fail(5 % 2, 2);
-      assert.fail(2 / 3, 1);
+  assert.isAtLeast('world'.length, 5);     // 'world'.length = 5 → ✅ a >= b
+  assert.isBelow(2 * Math.random(), 1);    // 2 * rand < 1 → ✅ a < b
+  assert.isBelow(5 % 2, 2);                // 5 % 2 = 1 → ✅ a < b
+  assert.isBelow(2 / 3, 1);                // 2/3 ≈ 0.66 → ✅ a < b
     });
+    
     // #10
     test('#approximately', function () {
       assert.fail(weirdNumbers(0.5), 1, 0);
